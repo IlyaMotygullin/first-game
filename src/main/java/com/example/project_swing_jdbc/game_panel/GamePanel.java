@@ -120,18 +120,8 @@ public class GamePanel extends JPanel implements Runnable {
         public void actionPerformed(ActionEvent e) {
             keyEventHandler();
             gameWindowSideHandler();
-            //движение пули автоматически
             bullet.setY(bullet.getY() - bullet.getSpeedDefault());
             repaint();
-            // движение пули по нажатию кнопки, есть баги
-//            if (keyListenerForBullet.UP) {
-//                LOGGER_START_PROCESS.info("good");
-//                bullet.setY(bullet.getY() - bullet.getSpeedForKey());
-//                if (bullet.getY() < 50) {
-//                    keyListenerForBullet.UP = false;
-//                }
-//                repaint();
-//            }
             changeLevel(countPlayer);
         }
     });
@@ -149,14 +139,17 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    private void drawImage(Graphics2D g2) {
+        g2.drawImage(imageCosmos, 0, 0, null);
+        g2.drawImage(sheep.createImgSheep(), sheep.getX(), sheep.getY(), this);
+        g2.drawImage(asteroid.crateImgAsteroid(), asteroid.getX(), asteroid.getY(), this);
+    }
     @Override
     @SneakyThrows
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.drawImage(imageCosmos, 0, 0, null);
-        g2.drawImage(sheep.createImgSheep(), sheep.getX(), sheep.getY(), this);
-        g2.drawImage(asteroid.crateImgAsteroid(), asteroid.getX(), asteroid.getY(), this);
+        drawImage(g2);
         Rectangle sheepRect = new Rectangle(
                 sheep.getX(),
                 sheep.getY(),
@@ -186,7 +179,6 @@ public class GamePanel extends JPanel implements Runnable {
                 bullet.getY(),
                 this
         );
-        g2.setColor(Color.WHITE);
         if (bullet.getY() < 50) {
             bullet = new Bullet(sheep.getX() + 15, sheep.getY());
         }
