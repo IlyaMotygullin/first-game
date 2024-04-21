@@ -180,7 +180,12 @@ public class GamePanel extends JPanel implements Runnable {
             asteroid.setX(asteroid.randomX());
             asteroid.setY(0);
         }
-        g2.drawImage(bullet.createImgBullet(), bullet.getX() + 15, bullet.getY(), this);
+        g2.drawImage(
+                bullet.createImgBullet(),
+                bullet.getX() + 15,
+                bullet.getY(),
+                this
+        );
         g2.setColor(Color.WHITE);
         if (bullet.getY() < 50) {
             bullet = new Bullet(sheep.getX() + 15, sheep.getY());
