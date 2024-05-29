@@ -1,7 +1,6 @@
 package com.example.project_swing_jdbc.info_window;
 
 import com.example.project_swing_jdbc.repository.UserRepository;
-import com.example.project_swing_jdbc.service.RegisterWindow;
 import com.example.project_swing_jdbc.service.RegisterWindowImpl;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

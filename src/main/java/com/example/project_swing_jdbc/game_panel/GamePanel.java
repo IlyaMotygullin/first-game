@@ -15,7 +15,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -23,6 +22,7 @@ import java.util.logging.Logger;
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class GamePanel extends JPanel implements Runnable {
+
     final File IMAGE_COSMOS = new File("C:\\Users\\admin\\Desktop\\JavaProject\\Project_Swing_JDBC\\src\\main\\" +
             "resources\\320f9dc047077ba56a3efc1f7025a7a2.jpg");
 
@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      *  поучение id текущего пользователя
-     * @return ничего
+     * @return id пользователя
      */
     private int getCurrentUserId() {
         return user.getId();
